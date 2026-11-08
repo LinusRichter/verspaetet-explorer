@@ -1,0 +1,20 @@
+name: verspaetet-explorer
+
+services:
+  explorer:
+    build: .
+    image: verspaetet-explorer
+    ports:
+      - "127.0.0.1:${PORT:-8080}:8080"
+    environment:
+      MONTHS: ${MONTHS:-latest}
+      PUBLIC_URL: http://localhost:${PORT:-8080}
+    volumes:
+      - data:/data
+    restart: on-failure
+    # Keeps the computer usable while a month is being prepared.
+    cpus: 2
+    mem_limit: 2g
+
+volumes:
+  data:
