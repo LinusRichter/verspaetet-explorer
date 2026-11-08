@@ -84,6 +84,7 @@ main { flex: 1; overflow-y: scroll; scrollbar-gutter: stable; padding: 16px 18px
 .hint.busy { color: var(--accent); }
 .tblwrap { overflow-x: auto; }
 footer { color: var(--muted); font-size: 10px; padding: 8px 18px; border-top: 1px solid var(--border); background: var(--bg2); opacity: .75; }
+footer a { color: var(--accent); }
 
 /* ---------- generic ---------- */
 .muted { color: var(--muted); }

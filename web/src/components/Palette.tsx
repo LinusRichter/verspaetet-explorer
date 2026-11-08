@@ -193,17 +193,9 @@ export function Palette({ open, onClose }: { open: boolean; onClose: () => void 
             <div className="palpending">Index wird aufgebaut … Linien und Fahrten können noch fehlen, Suche wird gleich wiederholt.</div>
           )}
           {loading && <Spinner />}
-          {!loading && items.length === 0 && (
+          {!loading && items.length === 0 && minLen(query) && (
             <div className="palempty">
-              {!minLen(query) ? (
-                <>
-                  <p>Zugnummer → Zuglauf · Linie → Linien-Ansicht · Bahnhof → Tafel.
-                    Uhrzeit im Text setzt den Wissensstand{nav.day ? ` (Tag: ${dayShort(nav.day)})` : ''}.</p>
-                  <div className="ex">
-                    {EXAMPLES.map((ex) => <button key={ex} onClick={() => { setQ(ex); inputRef.current?.focus() }}>{ex}</button>)}
-                  </div>
-                </>
-              ) : failed ? (
+              {failed ? (
                 <p>Suche fehlgeschlagen: {failed}</p>
               ) : (
                 <>
